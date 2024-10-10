@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        .search-container{
+            width: 100%;
+    display: flex;
+    justify-content: end; /* Align items to the left */
+    margin-bottom: 20px;
+    padding: 20px;
+        }
+        h2{
+            background-color:blueviolet;
+            width:100%;
+            text-align: center;
+        }
+        .main-container{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #000;
+            background-color: #f0f0f0;
+        }
+        .name{
+            cursor:pointer;
+        }
+        .child{
+            width: 22%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+        .upper {
+            flex: 1;
+            background-color: #e0e0e0;
+        }
+        .lower {
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .lower p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    
+
+
+
+<div class="main-container">
+    <h2>Movies</h2>
+
+    <div class="search-container">
+        <select id="ratingFilter">
+            <option value="all">All Ratings</option>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+        </select>
+        <button id="searchButton">Search</button>
+    </div>
+
+
+
+
+ <div class="child" data-rating="8">
+
+    <div class="upper">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUM30qiXIc-pu1jT-RkHjvI422cCX6p399cQ&s" width="50%" height="50%">
+    </div>
+
+    <div class="lower">
+    <p class="name">Bhoot Unkle</p>
+    <span></span>
+    </div>
+
+ </div>
+
+ <div class="child" data-rating="5">
+
+    <div class="upper">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQHmAnanZvbU0sof8TiDk2t2MKe4OR3O6cZw&s" width="50%" height="50%">
+    </div>
+
+    <div class="lower">
+    <p class="name">Sholey</p>
+    <span></span>
+    </div>
+
+ </div>
+
+ 
+ <div class="child" data-rating="9.5">
+
+    <div class="upper">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVKJ0jXWwXsfAEqiE8XktduWLeXVI9Veq1mg&s" width="50%" height="50%">
+    </div>
+
+    <div class="lower">
+    <p class="name">Narnda</p>
+    <span></span>
+    </div>
+
+ </div>
+
+
+ <div class="child" data-rating="5">
+
+    <div class="upper">
+    <img src="https://i.pinimg.com/736x/aa/92/13/aa92130b5dcbb96bd933c40ae7d798e2.jpg" width="50%" height="50%">
+    </div>
+
+    <div class="lower"  >
+    <p class="name">Hanuman</p>
+    <span></span>
+   </div>
+ </div>
+
+    <div class="child"  data-rating="4">
+
+        <div class="upper">
+        <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00383474-zpqmccmdgd-portrait.jpg" width="50%" height="50%">
+        </div>
+    
+        <div class="lower">
+        <p class="name">Venom</p>
+        <span></span>
+        </div>
+    
+    </div>
+
+    <div class="child"  data-rating="5">
+
+        <div class="upper">
+        <img src="https://assets.gadgets360cdn.com/pricee/assets/product/202406/Kakuda-Poster_1719577218.jpg" width="50%" height="50%">
+        </div>
+    
+        <div class="lower">
+        <p class="name">Kakuda</p>
+        <span></span>
+        </div>
+    
+    </div>
+
+
+    <div class="child" data-rating="2">
+
+        <div class="upper">
+        <img src="https://images.firstpost.com/uploads/2022/12/3i.jpg?im=FitAndFill=(596,336)" width="50%" height="50%">
+        </div>
+    
+        <div class="lower">
+        <p class="name">3 Idiot</p>
+        <span></span>
+        </div>
+    
+    </div>
+
+    <div class="child" data-rating="1">
+
+        <div class="upper">
+        <img src="https://bsmedia.business-standard.com/_media/bs/img/article/2023-03/05/full/1678023890-4522.jpg" width="50%" height="50%">
+        </div>
+    
+        <div class="lower">
+        <p class="name">Hanuman</p>
+        <span></span>
+        </div>
+    
+    </div>
+
+
+</div>
+
+
+
+</body>
+
+<script>
+
+    // printing stars
+
+    function generateStars(rating) {
+        const fullStars = Math.floor(rating / 2);
+        const halfStar = (rating % 2) >= 1;      
+        let stars = '';
+
+        for (let i = 0; i < fullStars; i++) {
+            stars += '★'; 
+        }
+
+        if (halfStar) {
+            stars += '⯨';
+        }
+
+        while (stars.length < 5) {
+            stars += '☆'; 
+        }
+
+        return stars;
+    }
+
+    function appendStarsToChildren() {
+        const children = document.querySelectorAll('.child'); 
+
+        children.forEach(child => {
+            const rating = child.getAttribute('data-rating'); 
+            const starString = generateStars(rating);         
+            const span = child.querySelector('.lower span'); 
+            span.textContent = starString;                    
+        });
+    }
+
+    window.onload = appendStarsToChildren;
+
+// Select Particular Movie
+
+    document.getElementById('searchButton').addEventListener('click', function() {
+        const selectedRating = document.getElementById('ratingFilter').value;
+        const children = document.querySelectorAll('.child');
+
+        children.forEach(child => {
+            const rating = parseInt(child.getAttribute('data-rating'));
+            if (selectedRating === "all" || Math.floor(rating) == selectedRating) {
+                child.style.display = "block"; // Show
+            } else {
+                child.style.display = "none"; // Hide
+            }
+        });
+    });
+
+
+// xhr method
+
+let names = document.querySelectorAll('.name');
+names.forEach(function(name) {
+    name.addEventListener('click', nameHandler);
+});
+
+function nameHandler(){
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET','https://feecq.github.io/api/movies.json',true);
+
+    xhr.onload = function(){
+        if(this.status === 200){
+            let obj = JSON.parse(this.responseText);
+            console.log(obj);
+        }
+        else{
+            console.log("Some error occured");
+        }
+    };
+
+    xhr.onerror = function() {
+            console.log("Request failed");
+        };
+
+    xhr.send();
+}
+
+</script>
+
+</html>
